@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Gallery with Descriptions</title>
+  <style>
+    body {
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      margin: 0;
+      background: #f4f4f4;
+      color: #333;
+    }
+
+    a{
+      text-decoration: none;
+      color: #030303;
+      text-align: right;
+      padding: 20px;
+      text-indent: 0%;
+      margin-bottom: 100px;
+    
+    }
+    header {
+      background-color: #222;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      padding: 20px;
+    }
+
+    .gallery-item {
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .gallery-item:hover {
+      transform: scale(1.03);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    #lightbox {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      z-index: 9999;
+      padding: 20px;
+      text-align: center;
+    }
+
+    #lightbox img {
+      max-width: 90%;
+      max-height: 70%;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    #lightbox p {
+      color: white;
+      font-size: 1.1rem;
+    }
+
+    @media (max-width: 600px) {
+      #lightbox p {
+        font-size: 1rem;
+      }
+    .back
+    {
+     font-size: 80px;   
+    }
+
+    }
+  </style>
+</head>
+<body>
+    <div>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="educ.html">Education</a>
+        <a href="skills.html">Skills</a>
+        <a href="work.html">Works</a>
+    </div>
+
+  <header>
+    <h1>Works</h1><h4>(click to see the code)</h4>
+  </header>
+
+
+  <div class="gallery">
+
+
+    <div class="gallery-item" onclick="showImage('p1.png', 'If-else condition program.')">
+      <img src="o1.png">
+    </div>
+
+    <div class="gallery-item" onclick="showImage('prog.png', 'User Registration and Login System that has vowel and number restrictions.')">
+      <img src="output.png">
+    </div>
+   
+    <div class="gallery-item" onclick="showImage('p2.png', 'Program of counting entered letter in a string or word entered.')">
+      <img src="o2.png" alt="cmbff">
+    </div>
+
+    <div class="gallery-item" onclick="showImage('last.png', 'Program to calculate your car rental with discounts depending on total price.')">
+      <img src="program2.png" alt="classmates">
+    </div>
+  </div>
+
+   
+
+  <div id="lightbox" onclick="hideLightbox()">
+    <img id="lightbox-img" src="" alt="Full view">
+    <p id="lightbox-desc"></p>
+  </div>
+
+  <script>
+    function showImage(src, description) {
+      document.getElementById("lightbox").style.display = "flex";
+      document.getElementById("lightbox-img").src = src;
+      document.getElementById("lightbox-desc").textContent = description;
+    }
+
+    function hideLightbox() {
+      document.getElementById("lightbox").style.display = "none";
+    }
+  </script>
+
+</body>
+</html>
